@@ -1,0 +1,2 @@
+HabitRPG-Anki-Addon
+===================
