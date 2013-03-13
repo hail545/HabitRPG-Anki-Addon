@@ -12,20 +12,18 @@ def card_answered(self, ease):
     #Cache number of correct answers
     if ease > 1:
         Syncer.correct_answers += 1
-        showInfo(str(Syncer.correct_answers))#For debugging
+        #showInfo(str(Syncer.correct_answers))#For debugging
 
 def habit_sync(x):
     #Call API once for every correct answer during Ankiweb sync
-    while Syncer.correct_answers > 0: 
-        request = urllib2.Request(url,data,headers)
-        urllib2.urlopen(request)
+    while Syncer.correct_answers > 0:
+        urllib2.urlopen(url,urllib.urlencode(headers))
         Syncer.correct_answers -= 1
-        showInfo("Called API. " + str(Syncer.correct_answers) + " Times remaining" )#For debugging
+       #showInfo("Called API. " + str(Syncer.correct_answers) + " Times remaining" )#For debugging
 
 Syncer.correct_answers = 0
-url = 'https://habitrpg.com/api/v1/users/task'
-headers = {"x-api-user":user_id, "x-api-key":api_token}
-data = {"type":"habit", "text":"Anki", "completed":"true"}
+url = 'https://habitrpg.com/v1/users/' + user_id + '/tasks/Anki/up'
+headers = {"apiToken":api_token,"title":"Anki"}
 
 #Wrap funtions to Anki
 Reviewer._answerCard = wrap(Reviewer._answerCard, card_answered)
