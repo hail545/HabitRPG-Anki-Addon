@@ -1,3 +1,6 @@
+#Author: Pherr <pherr@pherr.net>
+#License: GNU GPL v3 <www.gnu.org/licenses/gpl.html>
+
 import urllib2, urllib,  os, sys, json
 from anki.hooks import wrap
 from aqt.reviewer import Reviewer
