@@ -7,10 +7,10 @@ from aqt.reviewer import Reviewer
 from anki.sync import Syncer
 from aqt import *
 
+config ={}
 rate = 5
 conffile = os.path.join(os.path.dirname(os.path.realpath(__file__)), ".habitrpg.conf")
 conffile = conffile.decode(sys.getfilesystemencoding())
-config = json.load(open(conffile, 'r'))
 Syncer.active = False
 Syncer.correct_answers = 0
 
@@ -44,6 +44,7 @@ def setup():
 
 
 if os.path.exists(conffile):    # Load config file
+    config = json.load(open(conffile, 'r'))
     api_token = config['token']
     user_id = config['user']
     Syncer.correct_answers = config['score']
