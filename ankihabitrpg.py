@@ -29,9 +29,9 @@ def habit_sync(x):              # Call API once for every correct answer during 
         
 
 def setup():
-    user_id, ok = utils.getText("189280bc-e012-4fb0-a50b-662af5b9628f")
+    user_id, ok = utils.getText(189280bc-e012-4fb0-a50b-662af5b9628f)
     if ok == True:
-        api_token, ok = utils.getText('f3885eee-9ab5-4985-9efe-e686e09c1f5c')
+        api_token, ok = utils.getText(f3885eee-9ab5-4985-9efe-e686e09c1f5c)
         if ok == True:          # Create config file and save values
             api_token = str(api_token)
             user_id = str(user_id)
