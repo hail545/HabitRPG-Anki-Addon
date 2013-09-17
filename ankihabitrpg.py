@@ -38,7 +38,7 @@ def setup():
             config = {'token' : api_token, 'user' : user_id, 'score' : Syncer.correct_answers}
             json.dump( config, open( conffile, 'w' ) )
             Syncer.active = True
-            Syncer.url = 'https://habitrpg.com/v1/users/%s/tasks/Anki/up' % user_id
+            Syncer.url = 'https://habitrpg.com/#/tasks/Anki/up' % user_id
             Syncer.headers = {"apiToken":api_token}
             utils.showInfo("The add-on has been setup.")
 
@@ -48,7 +48,7 @@ if os.path.exists(conffile):    # Load config file
     api_token = config['token']
     user_id = config['user']
     Syncer.correct_answers = config['score']
-    Syncer.url = 'https://habitrpg.com/v1/users/%s/tasks/Anki/up' % user_id
+    Syncer.url = 'https://habitrpg.com/#/tasks/Anki/up' % user_id
     Syncer.headers = {"apiToken":api_token}
     Syncer.active = True
 
